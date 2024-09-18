@@ -7,6 +7,7 @@
 """
 import math
 from datetime import datetime
+import sympy as sp
 print(f"{datetime.now()}")
 
 def f(x):
@@ -51,7 +52,7 @@ print("Interval div. Iterations:", result[2])
 print("Interval div. Functions invoked:", result[3])
 
 
-def golden_section_method(f, l, r, eps=1e-4):
+def goldCut(f, l, r, eps=1e-4):
     tau = (math.sqrt(5)-1)/2
     
     L = r-l
@@ -86,45 +87,51 @@ def golden_section_method(f, l, r, eps=1e-4):
     return xm, f(xm), iterNum, funcNum
 
 
-result2 = golden_section_method(f, 0, 10)
+result2 = goldCut(f, 0, 10)
 print("Gold cut Minimum point:", result2[0])
 print("Gold cut Function value at minimum:", result2[1])
 print("Gold cut Iterations:", result2[2])
 print("Gold cut Functions invoked:", result2[3])
 
-def isv(f, x, h=1e-4):
-    return (f(x+h)-f(x-h))/(2*h)
-
-def isv_2(f, x, h=1e-4):
-    return (f(x+h)-2*f(x)+f(x-h))/(h**2)
-
-def newtons_method(f, x0, eps=1e-4, max_iter=100):
+def newton(fSym, x0, eps=1e-4, maxIter=100):
+    x = sp.symbols('x')
+    
+    fIsv = sp.diff(fSym, x)
+    fIsv2 = sp.diff(fIsv, x)
+    
+    fSk = sp.lambdify(x, fSym)
+    fIsvSk = sp.lambdify(x, fIsv)
+    fIsv2Sk = sp.lambdify(x, fIsv2)
+    
     xi = x0
     iterNum = 0
     funcNum = 0
     
-    while iterNum < max_iter:
-        fIsv_xi = isv(f, xi)
-        fIsv2_xi = isv_2(f, xi)
-        funcNum += 5
-
+    while iterNum < maxIter:
+        fIsv_xi = fIsvSk(xi)
+        fIsv2_xi = fIsv2Sk(xi)
+        funcNum += 2
+        
         if abs(fIsv2_xi) < eps:  
             break
         
-        xiNext = xi - fIsv_xi/fIsv2_xi
+        xiNext = xi-fIsv_xi/fIsv2_xi
         iterNum += 1
         
-        if abs(xiNext - xi) < eps:
+        if abs(xiNext-xi) < eps:  
             break
         
         xi = xiNext
+    
+    return xi, fSk(xi), iterNum, funcNum
 
-    return xi, f(xi), iterNum, funcNum
+x = sp.symbols('x')
+fSym = ((x**2-5)**2)/7-1
 
-x0 = 5
-result3 = newtons_method(f, 5)
+x0 = 5  
+result3 = newton(fSym, x0)
 
 print("Newton Minimum point:", result3[0])
-print("Newton Function value at minimum:", result2[1])
+print("Newton Function value at minimum:", result3[1])
 print("Newton Iterations:", result3[2])
-print("Newton Functions invoked:", result2[3])
+print("Newton Functions invoked:", result3[3])
