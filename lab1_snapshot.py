@@ -19,7 +19,6 @@ def g(x):
 def halfCut(f, l, r, eps=1e-4):
     iterNum = 0
     funcNum = 0
-
     while(r-l) > eps:
         iterNum += 1
         xm = (l+r)/2
@@ -28,9 +27,9 @@ def halfCut(f, l, r, eps=1e-4):
         x1 = l+L/4
         x2 = r-L/4
 
+        fxm = f(xm)
         fx1 = f(x1)
         fx2 = f(x2)
-        fxm = f(xm)
         funcNum += 3
 
         if fx1 < fxm:
