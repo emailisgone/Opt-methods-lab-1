@@ -129,7 +129,7 @@ def newton(fSym, x0, eps=1e-4, maxIter=100):
 x = sp.symbols('x')
 fSym = ((x**2-5)**2)/7-1
 
-x0 = 5  
+x0 = 5
 result3 = newton(fSym, x0)
 
 print("Newton Minimum point:", result3[0])
