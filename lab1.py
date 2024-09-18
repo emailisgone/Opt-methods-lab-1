@@ -27,15 +27,15 @@ def halfCut(f, l, r, eps=1e-4):
         x1 = l+L/4
         x2 = r-L/4
 
-        f_xm = f(xm)
-        f_x1 = f(x1)
-        f_x2 = f(x2)
+        fxm = f(xm)
+        fx1 = f(x1)
+        fx2 = f(x2)
         funcNum += 3
 
-        if f_x1 < f_xm:
+        if fx1 < fxm:
             r = xm
             xm = x1  
-        elif f_x2 < f_xm:
+        elif fx2 < fxm:
             l = xm
             xm = x2 
         else:
@@ -58,29 +58,29 @@ def goldCut(f, l, r, eps=1e-4):
     L = r-l
     x1 = l+(1-tau)*L
     x2 = l+tau*L
-    f_x1 = f(x1)
-    f_x2 = f(x2)
+    fx1 = f(x1)
+    fx2 = f(x2)
     
     iterNum = 0
     funcNum = 2  
     
     while(r-l) > eps:
         iterNum += 1
-        if f_x1<f_x2:
+        if fx1<fx2:
             r = x2
             x2 = x1
-            f_x2 = f_x1
-            L = r - l
+            fx2 = fx1
+            L = r-l
             x1 = l+(1-tau)*L
-            f_x1 = f(x1)
+            fx1 = f(x1)
             funcNum += 1
         else:
             l = x1
             x1 = x2
-            f_x1 = f_x2
+            fx1 = fx2
             L = r-l
             x2 = l+tau*L
-            f_x2 = f(x2)
+            fx2 = f(x2)
             funcNum += 1
 
     xm = (l+r)/2
