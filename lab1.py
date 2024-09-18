@@ -8,6 +8,8 @@
 import math
 from datetime import datetime
 import sympy as sp
+import numpy as np
+import matplotlib.pyplot as plt
 print(f"{datetime.now()}")
 
 def f(x):
@@ -20,9 +22,12 @@ def halfCut(f, l, r, eps=1e-4):
     iterNum = 0
     funcNum = 0
 
+    xm = (l+r)/2
+    fxm = f(xm)
+    funcNum+=1
     while(r-l) > eps:
         iterNum += 1
-        xm = (l+r)/2
+        
         L = r-l
 
         x1 = l+L/4
@@ -30,18 +35,23 @@ def halfCut(f, l, r, eps=1e-4):
 
         fx1 = f(x1)
         fx2 = f(x2)
-        fxm = f(xm)
-        funcNum += 3
+        
+        funcNum += 2
 
         if fx1 < fxm:
             r = xm
-            xm = x1  
+            xm = x1
+            fxm = fx1
+
         elif fx2 < fxm:
             l = xm
             xm = x2 
+            fxm = fx2
+
         else:
             l = x1
             r = x2
+
 
     xm = (l+r)/2
     return xm, f(xm), iterNum, funcNum
@@ -55,7 +65,8 @@ print("Interval div. Functions invoked:", result[3])
 
 def goldCut(f, l, r, eps=1e-4):
     tau = (math.sqrt(5)-1)/2
-    
+    print(tau)
+
     L = r-l
     x1 = l+(1-tau)*L
     x2 = l+tau*L
@@ -107,6 +118,9 @@ def newton(fSym, x0, eps=1e-4, maxIter=100):
     xi = x0
     iterNum = 0
     funcNum = 0
+
+    xVal = [xi]
+    yVal = [fSk(xi)]
     
     while iterNum < maxIter:
         fIsv_xi = fIsvSk(xi)
@@ -118,13 +132,16 @@ def newton(fSym, x0, eps=1e-4, maxIter=100):
         
         xiNext = xi-fIsv_xi/fIsv2_xi
         iterNum += 1
+
+        xVal.append(xiNext)
+        yVal.append(fSk(xiNext))
         
         if abs(xiNext-xi) < eps:  
             break
         
         xi = xiNext
     
-    return xi, fSk(xi), iterNum, funcNum
+    return xi, fSk(xi), iterNum, funcNum, xVal, yVal
 
 x = sp.symbols('x')
 fSym = ((x**2-5)**2)/7-1
@@ -136,3 +153,16 @@ print("Newton Minimum point:", result3[0])
 print("Newton Function value at minimum:", result3[1])
 print("Newton Iterations:", result3[2])
 print("Newton Functions invoked:", result3[3])
+
+
+xVal = np.linspace(0, 6, 1000)
+yVal = [float(fSym.subs(x, xi)) for xi in xVal]
+
+plt.figure(figsize=(10,6))
+plt.plot(xVal, yVal, label='((x**2-5)**2)/7-1')
+plt.scatter(result3[4][:-1], result3[5][:-1], color='red', label='Band. taškai')
+plt.scatter(result3[4][-1], result3[5][-1], color='green', s=100, label='Min. taškas')
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.legend()
+plt.show()
