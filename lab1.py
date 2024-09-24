@@ -25,6 +25,9 @@ def halfCut(f, l, r, eps=1e-4):
     xm = (l+r)/2
     fxm = f(xm)
     funcNum+=1
+
+    xVal = [xm]
+    yVal = [f(xm)]
     while(r-l) > eps:
         iterNum += 1
         
@@ -52,9 +55,13 @@ def halfCut(f, l, r, eps=1e-4):
             l = x1
             r = x2
 
+        xVal.append(xm)
+        yVal.append(f(xm))
 
     xm = (l+r)/2
-    return xm, f(xm), iterNum, funcNum
+    xVal.append(xm)
+    yVal.append(f(xm))
+    return xm, f(xm), iterNum, funcNum, xVal, yVal
 
 result = halfCut(f, 0, 10)
 print("Interval div. Minimum point:", result[0])
@@ -62,6 +69,18 @@ print("Interval div. Function value at minimum:", result[1])
 print("Interval div. Iterations:", result[2])
 print("Interval div. Functions invoked:", result[3])
 
+xVal = np.linspace(0, 10, 1000)
+yVal = [f(x) for x in xVal]
+
+plt.figure(figsize=(10, 6))
+plt.plot(xVal, yVal, label='f(x) = ((x**2-5)**2)/7 - 1')
+plt.scatter(result[4][:-1], result[5][:-1], color='red', label='Band. taškai')
+plt.scatter(result[4][-1], result[5][-1], color='green', s=100, label='Min. taškas')
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.title("Intervalo dalijimo pusiau metodas")
+plt.legend()
+plt.show()
 
 def goldCut(f, l, r, eps=1e-4):
     tau = (math.sqrt(5)-1)/2
@@ -75,7 +94,9 @@ def goldCut(f, l, r, eps=1e-4):
     
     iterNum = 0
     funcNum = 2  
-    
+
+    xVal = [x1, x2]
+    yVal = [f(x1), f(x2)]
     while(r-l) > eps:
         iterNum += 1
         if fx1<fx2:
@@ -96,14 +117,25 @@ def goldCut(f, l, r, eps=1e-4):
             funcNum += 1
 
     xm = (l+r)/2
-    return xm, f(xm), iterNum, funcNum
-
+    xVal.append((l + r) / 2)
+    yVal.append(f((l + r) / 2))
+    return xm, f(xm), iterNum, funcNum, xVal, yVal
 
 result2 = goldCut(f, 0, 10)
 print("Gold cut Minimum point:", result2[0])
 print("Gold cut Function value at minimum:", result2[1])
 print("Gold cut Iterations:", result2[2])
 print("Gold cut Functions invoked:", result2[3])
+
+plt.figure(figsize=(10, 6))
+plt.plot(xVal, yVal, label='f(x) = ((x**2-5)**2)/7 - 1')
+plt.scatter(result2[4][:-1], result2[5][:-1], color='red', label='Band. taškai')
+plt.scatter(result2[4][-1], result2[5][-1], color='green', s=100, label='Min. taškas')
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.title("Auksinio pjūvio metodas")
+plt.legend()
+plt.show()
 
 def newton(fSym, x0, eps=1e-4, maxIter=100):
     x = sp.symbols('x')
@@ -154,15 +186,15 @@ print("Newton Function value at minimum:", result3[1])
 print("Newton Iterations:", result3[2])
 print("Newton Functions invoked:", result3[3])
 
-
 xVal = np.linspace(0, 6, 1000)
 yVal = [float(fSym.subs(x, xi)) for xi in xVal]
 
 plt.figure(figsize=(10,6))
-plt.plot(xVal, yVal, label='((x**2-5)**2)/7-1')
+plt.plot(xVal, yVal, label='f(x) = ((x**2-5)**2)/7-1')
 plt.scatter(result3[4][:-1], result3[5][:-1], color='red', label='Band. taškai')
 plt.scatter(result3[4][-1], result3[5][-1], color='green', s=100, label='Min. taškas')
 plt.xlabel('x')
 plt.ylabel('f(x)')
+plt.title("Niutono metodas")
 plt.legend()
 plt.show()
