@@ -72,7 +72,7 @@ print("Interval div. Function value at minimum:", result[1])
 print("Interval div. Iterations:", result[2])
 print("Interval div. Functions invoked:", result[3])
 
-xVal = np.linspace(0, 10, 1000)
+xVal = np.linspace(0, 10, 100)
 yVal = [f(x) for x in xVal]
 
 plt.figure(figsize=(10, 6))
@@ -83,6 +83,7 @@ plt.xlabel('x')
 plt.ylabel('f(x)')
 plt.title("Intervalo dalijimo pusiau metodas")
 plt.legend()
+plt.grid(True)
 plt.show()
 
 def goldCut(f, l, r, eps=1e-4):
@@ -142,6 +143,7 @@ plt.xlabel('x')
 plt.ylabel('f(x)')
 plt.title("Auksinio pjūvio metodas")
 plt.legend()
+plt.grid(True)
 plt.show()
 
 def newton(fSym, x0, eps=1e-4, maxIter=100):
@@ -193,7 +195,7 @@ print("Newton Function value at minimum:", result3[1])
 print("Newton Iterations:", result3[2])
 print("Newton Functions invoked:", result3[3])
 
-xVal = np.linspace(0, 6, 1000)
+xVal = np.linspace(0, 6, 100)
 yVal = [float(fSym.subs(x, xi)) for xi in xVal]
 
 plt.figure(figsize=(10,6))
@@ -204,4 +206,5 @@ plt.xlabel('x')
 plt.ylabel('f(x)')
 plt.title("Niutono metodas")
 plt.legend()
+plt.grid(True)
 plt.show()
