@@ -1,0 +1,9 @@
+\babel@toc {lithuanian}{}\relax 
+\babel@toc {lithuanian}{}\relax 
+\contentsline {section}{\numberline {1}Tikslo funkcija}{2}{}%
+\contentsline {section}{\numberline {2}Vienmačiai optimizavimo metodai ir jų algoritmų kodai}{2}{}%
+\contentsline {subsection}{\numberline {2.1}Intervalo dalijimo pusiau metodas}{2}{}%
+\contentsline {subsection}{\numberline {2.2}Auksinio pjūvio metodas}{3}{}%
+\contentsline {subsection}{\numberline {2.3}Niutono metodas}{5}{}%
+\contentsline {section}{\numberline {3}Rezultatai ir jų palyginimai}{7}{}%
+\contentsline {subsection}{\numberline {3.1}Minimumo taškas ir funkcijos reikšmė tame taške}{7}{}%

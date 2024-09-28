@@ -1,6 +1,6 @@
 """
 1. Suprogramuokite vienmačio optimizavimo intervalo dalijimo pusiau, auksinio pjūvio ir Niutono metodo algoritmus.
-2. Aprašykite tikslo funkciją f(x) = (x2-5)2/b-7.
+2. Aprašykite tikslo funkciją f(x) = (x^2-5)^2/7-1.
 3. Minimizuokite šią funkciją intervalo dalijimo pusiau ir auksinio pjūvio metodais intervale [0,10] iki tikslumo 10^(-4) bei Niutono metodu nuo x_0 = 5 kol žingsnio ilgis didesnis už 10^(-4).
 4. Palyginkite rezultatus: gauti sprendiniai, rastas funkcijos minimumo įvertis, atliktų žingsnių ir funkcijų skaičiavimų skaičius.
 5. Vizualizuokite tikslo funkciją ir bandymo taškus.
@@ -15,9 +15,6 @@ print(f"{datetime.now()}")
 def f(x):
     return ((x**2-5)**2)/7-1
 
-def g(x):
-    return (100-x)**2
-
 def halfCut(f, l, r, eps=1e-4):
     iterNum = 0
     funcNum = 0
@@ -30,7 +27,6 @@ def halfCut(f, l, r, eps=1e-4):
     yVal = [fxm]
     while(r-l) > eps:
         iterNum += 1
-        
         L = r-l
 
         x1 = l+L/4
