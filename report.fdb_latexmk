@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1727631953.95874 "c:/Users/Nikita/Documents/VU Material/Optimization-methods/report.tex" "report.pdf" "report" 1727631955.05201 0
+["pdflatex"] 1727632084.49428 "c:/Users/Nikita/Documents/VU Material/Optimization-methods/report.tex" "report.pdf" "report" 1727632085.57276 0
   "C:/Users/Nikita/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1727631739 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/Nikita/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1000.pk" 1727456550 25420 f54aa66eef38102fda86f29cbc9bdcf6 ""
   "C:/Users/Nikita/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1200.pk" 1727456551 31952 9ccc2b0454d9af62b8e99300645eb452 ""
@@ -127,15 +127,15 @@
   "Figure_2.png" 1727528106 36740 00beab171d8e78cec0e79c628209f723 ""
   "Figure_3.png" 1727528117 34546 c28f12848126f442e2182d8c2b9bf2cb ""
   "Nikita_Gainulin_lab1.py" 1727631898 4905 ddb2aa9cf21be16127d9a37c1de7ec84 ""
-  "c:/Users/Nikita/Documents/VU Material/Optimization-methods/report.tex" 1727631953 13149 6b97a6c03c7a4576f9bf19d8b9e7aeb3 ""
+  "c:/Users/Nikita/Documents/VU Material/Optimization-methods/report.tex" 1727632084 13149 6b97a6c03c7a4576f9bf19d8b9e7aeb3 ""
   "fx.py" 1727525979 39 c69d8f52d9410d6735b3e2fec3e8dc3f ""
   "goldratio.py" 1727529854 898 6f502baf6b27d8bc3fac32bb5adc57de ""
   "halfcut.py" 1727631292 867 91b2bd7747ada582d84f15c70f011170 ""
   "newton.py" 1727535849 862 4b81dfc07e8647f38209bcf4e371715c ""
-  "report.aux" 1727631954 3306 a5427705ca481c32b99e774a7dc0d2e6 "pdflatex"
-  "report.out" 1727631954 1849 5b47d2842eed8dc12205719cf69d56e3 "pdflatex"
-  "report.tex" 1727631953 13149 6b97a6c03c7a4576f9bf19d8b9e7aeb3 ""
-  "report.toc" 1727631954 991 3aeb0eac73098d1c5243247d6c0c3532 "pdflatex"
+  "report.aux" 1727632085 3306 a5427705ca481c32b99e774a7dc0d2e6 "pdflatex"
+  "report.out" 1727632085 1849 5b47d2842eed8dc12205719cf69d56e3 "pdflatex"
+  "report.tex" 1727632084 13149 6b97a6c03c7a4576f9bf19d8b9e7aeb3 ""
+  "report.toc" 1727632085 991 3aeb0eac73098d1c5243247d6c0c3532 "pdflatex"
   (generated)
   "report.aux"
   "report.log"
