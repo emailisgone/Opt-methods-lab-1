@@ -1,9 +1,13 @@
 \babel@toc {lithuanian}{}\relax 
 \babel@toc {lithuanian}{}\relax 
-\contentsline {section}{\numberline {1}Tikslo funkcija}{2}{}%
-\contentsline {section}{\numberline {2}Vienmačiai optimizavimo metodai ir jų algoritmų kodai}{2}{}%
-\contentsline {subsection}{\numberline {2.1}Intervalo dalijimo pusiau metodas}{2}{}%
-\contentsline {subsection}{\numberline {2.2}Auksinio pjūvio metodas}{3}{}%
-\contentsline {subsection}{\numberline {2.3}Niutono metodas}{5}{}%
-\contentsline {section}{\numberline {3}Rezultatai ir jų palyginimai}{7}{}%
-\contentsline {subsection}{\numberline {3.1}Minimumo taškas ir funkcijos reikšmė tame taške}{7}{}%
+\contentsline {section}{\numberline {1}Tikslo funkcija}{2}{section.1}%
+\contentsline {section}{\numberline {2}Vienmačiai optimizavimo metodai ir jų algoritmai}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Intervalo dalijimo pusiau metodas}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Auksinio pjūvio metodas}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Niutono metodas}{5}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Rezultatai ir jų palyginimai}{7}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Minimumo taškas ir funkcijos reikšmė tame taške}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Greitis}{7}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Efektyvumas}{8}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Išvada}{9}{section.4}%
+\contentsline {section}{\numberline {5}Priedas}{9}{section.5}%

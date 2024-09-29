@@ -1,6 +1,3 @@
-def f(x):
-    return ((x**2-5)**2)/7-1
-
 def halfCut(f, l, r, eps=1e-4):
     iterNum = 0
     funcNum = 0

@@ -1,10 +1,10 @@
-"""
-1. Suprogramuokite vienmačio optimizavimo intervalo dalijimo pusiau, auksinio pjūvio ir Niutono metodo algoritmus.
-2. Aprašykite tikslo funkciją f(x) = (x^2-5)^2/7-1.
-3. Minimizuokite šią funkciją intervalo dalijimo pusiau ir auksinio pjūvio metodais intervale [0,10] iki tikslumo 10^(-4) bei Niutono metodu nuo x_0 = 5 kol žingsnio ilgis didesnis už 10^(-4).
-4. Palyginkite rezultatus: gauti sprendiniai, rastas funkcijos minimumo įvertis, atliktų žingsnių ir funkcijų skaičiavimų skaičius.
-5. Vizualizuokite tikslo funkciją ir bandymo taškus.
-"""
+'''
+Matematikos ir informatikos fakultetas
+Nikita Gainulin
+3 kursas
+Laboratorinis darbas 1
+'''
+
 import math
 from datetime import datetime
 import sympy as sp
